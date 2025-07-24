@@ -1,0 +1,60 @@
+{
+    "@context": {
+      "@base": "https://w3id.org/fckg/",
+      "@vocab": "https://schema.org/",
+      "dcat": "http://www.w3.org/ns/dcat#",
+      "servesDataset":"dcat:servesDataset"
+    },
+    "@graph": [
+    {
+    "@id":"kg",
+    "@type": "Dataset",
+    "name": "Food Health Claims Knowledge Graph",
+    "alternateName": ["Food Claims KG","FCKG"],
+    "description": "A FAIR RDF knowledge graph based on 260 EU-authorized health claims, structured across food, health effect, target group, and supporting scientific evidence.",
+    "url": "https://github.com/MaastrichtU-IDS/food-claims-kg",
+    "creator": {"@id":"ids"},
+	"publisher": {"@id":"ids"},
+	"dateCreated": "2024-01-01",
+	"datePublished": "2024-02-26",
+    "dateModified": "2024-06-01",
+	"image": "https://github.com/MaastrichtU-IDS/food-claims-kg/blob/master/food-claims-kg.jpg",
+	"distribution": [{
+        "@type": "DataDownload",
+        "encodingFormat": "text/turtle",
+        "contentUrl": "https://raw.githubusercontent.com/MaastrichtU-IDS/food-claims-kg/main/data/food-claims.ttl"
+      }],
+	"version": "1.0",
+    "license": "https://opensource.org/licenses/MIT",
+	"keywords": ["personalised nutrition", "food health claim", "knowledge graph", "FAIR data", "RDF", "EFSA"],
+	"publication": "https://ceur-ws.org/Vol-3890/paper-24.pdf",
+	"inLanguage": "en"
+    },
+    {
+      "@id": "webapi",
+      "@type": "WebAPI",
+      "description":"Web API that uses SPARQL queries over the SPARQL endpoint",
+      "provider": {"@id":"ids"},
+      "url": "http://grlc.io/api-git/MaastrichtU-IDS/food-claims-kg",
+      "servesDataset": {
+        "@id": "kg"
+      }
+    },
+    {
+      "@id": "sparql",
+      "@type": "WebAPI",
+      "url": "https://graphdb.dumontierlab.com/repositories/FoodHealthClaimsKG",
+      "description":"SPARQL Endpoint for the Food Claims KG",
+      "provider": {"@id":"ids"},
+      "servesDataset": {
+        "@id": "kg"
+      }
+    },
+    {
+    "@id": "ids",
+    "@type": "Organization",
+    "name": "Maastricht University Institute of Data Science",
+    "url": "https://www.maastrichtuniversity.nl/research/institute-data-science"
+      }
+    ]
+}
